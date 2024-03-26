@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/nhan_vien/update">
     <div>
         <label>Tên</label>
-        <input type="text" name="ten" value="${nv.ten}"/>
+        <input type="text" name="ten" value="${nv.ten}" readonly/>
     </div>
     <div>
         <label>Mã</label>

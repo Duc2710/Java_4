@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/hoa_don_CT/store">
     <div>
         <label>ID hóa đơn</label>
-        <input type="text" name="idHD"/>
+        <input type="text" name="idHD" />
     </div>
     <div>
         <label>ID sản phẩm</label>

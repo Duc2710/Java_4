@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/san_pham/update">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ sp.ma }"/>
+        <input type="text" name="ma" value="${ sp.ma }" />
     </div>
     <div>
         <label>Tên</label>
@@ -23,7 +23,7 @@
         <label>Ngừng hoạt động</label>
     </div>
     <div>
-        <button>Thêm</button>
+        <button>Cập nhật</button>
     </div>
     <div>
         <button>

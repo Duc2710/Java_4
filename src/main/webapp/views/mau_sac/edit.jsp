@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/mau_sac/update">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ ms.ma }"/>
+        <input type="text" name="ma" value="${ ms.ma }" readonly/>
     </div>
     <div>
         <label>Tên</label>

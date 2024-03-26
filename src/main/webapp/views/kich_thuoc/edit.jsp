@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/kich_thuoc/update">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ kt.ma }"/>
+        <input type="text" name="ma" value="${ kt.ma }" readonly/>
     </div>
     <div>
         <label>Tên</label>

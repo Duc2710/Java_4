@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/hoa_don/store">
     <div>
         <label>ID nhân viên</label>
-        <input type="text" name="idNV"/>
+        <input type="text" name="idNV" />
     </div>
     <div>
         <label>ID khách hàng</label>

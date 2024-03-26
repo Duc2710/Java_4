@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/hoa_don/update">
     <div>
         <label>ID nhân viên</label>
-        <input type="text" name="idNV" value="${hd.idNV}"/>
+        <input type="text" name="idNV" value="${hd.idNV}" readonly/>
     </div>
     <div>
         <label>ID khách hàng</label>

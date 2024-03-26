@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/san_pham/store">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma"/>
+        <input type="text" name="ma" />
     </div>
     <div>
         <label>Tên</label>

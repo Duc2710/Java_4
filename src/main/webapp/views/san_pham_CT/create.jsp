@@ -11,7 +11,7 @@
     </div>
     <div>
         <label>Kích thước</label>
-        <input type="text" name="idKT"/>
+        <input type="text" name="idKT" />
     </div>
     <div>
         <label>Màu sắc</label>

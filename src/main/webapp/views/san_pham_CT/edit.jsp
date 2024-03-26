@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/san_pham_CT/update">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${spct.ma}"/>
+        <input type="text" name="ma" value="${spct.ma}" readonly/>
     </div>
     <div>
         <label>Kích thước</label>

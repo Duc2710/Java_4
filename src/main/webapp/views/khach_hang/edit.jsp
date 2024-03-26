@@ -7,7 +7,7 @@
 <form method="POST" action="/BTVN_war_exploded/khach_hang/update">
   <div>
     <label>Tên</label>
-    <input type="text" name="ten" value="${kh.ten}"/>
+    <input type="text" name="ten" value="${kh.ten}" readonly/>
   </div>
   <div>
     <label>SDT</label>
