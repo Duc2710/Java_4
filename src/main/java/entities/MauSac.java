@@ -1,10 +1,20 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Table(name = "MauSac")
+@Entity
 
 public class MauSac {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID")
     private Integer id;
+    @Column(name = "Ma")
     private String ma;
+    @Column(name = "Ten")
     private String ten;
+    @Column(name = "TrangThai")
     private int trangThai;
 
     public MauSac() {

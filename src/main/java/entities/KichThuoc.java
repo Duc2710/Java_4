@@ -1,7 +1,15 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Table(name ="KichThuoc")
+@Entity
 public class KichThuoc {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "ID")
     private Integer id;
+    @Column(name = "Ten")
     private String ten;
     private String ma;
     private int trangThai;

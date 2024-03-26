@@ -22,9 +22,9 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${ data }" var="ms" varStatus="i">
+    <c:forEach items="${ data }" var="ms" >
         <tr>
-            <td>${i.index+1}</td>
+            <td>${ms.id}</td>
             <td>${ ms.ma }</td>
             <td>${ ms.ten }</td>
             <td>${ ms.trangThai }</td>

@@ -6,8 +6,12 @@
 <body>
 <form method="POST" action="/BTVN_war_exploded/mau_sac/update">
     <div>
+        <label>Id</label>
+        <input type="text" name="ID" value="${ ms.id }"/>
+    </div>
+    <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ ms.ma }" readonly/>
+        <input type="text" name="ma" value="${ ms.ma }"/>
     </div>
     <div>
         <label>Tên</label>
