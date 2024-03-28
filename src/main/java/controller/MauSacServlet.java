@@ -80,11 +80,13 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
+        String id = request.getParameter("ID");
+        int ID = Integer.parseInt(id);
         String ma = request.getParameter("ma");
         String ten = request.getParameter("ten");
         String ttString = request.getParameter("trangThai");
         int trangThai = Integer.parseInt(ttString);
-        MauSac ms = new MauSac(null, ma, ten, trangThai);
+        MauSac ms = new MauSac(ID, ma, ten, trangThai);
         this.msRP.create(ms);
         response.sendRedirect("/BTVN_war_exploded/mau_sac/index");
     }
@@ -132,7 +134,7 @@ public class MauSacServlet extends HttpServlet {
         for (int i = 0; i < this.msRP.findAll().size(); i++) {
             MauSac color = this.msRP.findAll().get(i);
             if (color.getMa().equals(ma)) {
-                this.msRP.delete(i);
+                this.msRP.delete(color);
             }
         }
         response.sendRedirect("/BTVN_war_exploded/mau_sac/index");

@@ -40,7 +40,7 @@ public class MauSacRP {
             tr.rollback();
         }
     }
-    public void delete(int ms) {
+    public void delete(MauSac ms) {
         Transaction tr = this.hSession.getTransaction();
         try {
             tr.begin();
