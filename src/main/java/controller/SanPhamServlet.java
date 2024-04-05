@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import repositories.SanPhamRP;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,11 +24,12 @@ import java.util.List;
 })
 public class SanPhamServlet extends HttpServlet {
     List<SanPham> dsSP = new ArrayList<>();
-    public  SanPhamServlet(){
-        this.dsSP.add(new SanPham(null, "012", "tivi",1 ));
-        this.dsSP.add(new SanPham(null, "013", "PC",1 ));
-        this.dsSP.add(new SanPham(null, "014", "Laptop",0 ));
+    private SanPhamRP spRP = new SanPhamRP();
+
+    public SanPhamServlet() {
+        //
     }
+
     public void doGet(
             HttpServletRequest request,
             HttpServletResponse response
@@ -63,7 +66,7 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        request.setAttribute("data", this.dsSP);
+        request.setAttribute("data", spRP.findAll());
         request.getRequestDispatcher("/views/san_pham/index.jsp")
                 .forward(request, response);
     }
@@ -80,12 +83,17 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        SanPham sp = new SanPham(null, ma, ten, trangThai);
-        this.dsSP.add(sp);
+//        String ma = request.getParameter("ma");
+//        String ten = request.getParameter("ten");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        SanPham sp = new SanPham();
+        try {
+            BeanUtils.populate(sp, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.spRP.create(sp);
         response.sendRedirect("/BTVN_war_exploded/san_pham/index");
     }
 
@@ -93,13 +101,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsSP.size(); i++) {
-            SanPham sp = this.dsSP.get(i);
-            if (sp.getMa().equals(ma)) {
-                request.setAttribute("sp", sp);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        SanPham sp = this.spRP.findById(ID);
         request.getRequestDispatcher("/views/san_pham/edit.jsp")
                 .forward(request, response);
     }
@@ -108,17 +111,17 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        SanPham sp = new SanPham(null, ma, ten, trangThai);
-        for (int i = 0; i < this.dsSP.size(); i++) {
-            SanPham sanPham = this.dsSP.get(i);
-            if (sanPham.getMa().equals(ma)) {
-                this.dsSP.set(i, sanPham);
-            }
+//        String ma = request.getParameter("ma");
+//        String ten = request.getParameter("ten");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        SanPham sp = new SanPham();
+        try {
+            BeanUtils.populate(sp, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        this.spRP.update(sp);
         response.sendRedirect("/BTVN_war_exploded/san_pham/index");
     }
 
@@ -126,13 +129,9 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsSP.size(); i++) {
-            SanPham sanPham = this.dsSP.get(i);
-            if (sanPham.getMa().equals(ma)) {
-                this.dsSP.remove(i);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        SanPham sp = this.spRP.findById(ID);
+        this.spRP.delete(sp);
         response.sendRedirect("/BTVN_war_exploded/san_pham/index");
     }
 }

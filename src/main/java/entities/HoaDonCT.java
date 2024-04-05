@@ -1,12 +1,26 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "HoaDonChiTiet")
 public class HoaDonCT {
+    @Column(name = "ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
+    @Column(name = "IdHoaDon")
     private String idHD;
+    @Column(name = "IdSPCT")
     private String idSPCT;
+    @Column(name = "SoLuong")
     private int soLuong;
+    @Column(name = "DonGia")
     private int donGia;
+    @Column(name = "TrangThai")
     private int trangThai;
+//    @Column(name = "ThoiGian")
+//    private DateTime
 
     public HoaDonCT() {
     }

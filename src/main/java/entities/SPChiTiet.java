@@ -1,13 +1,27 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "SanPhamChiTiet")
 public class SPChiTiet {
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
+    @Column(name = "MaSPCT")
     private String ma;
+    @Column(name = "IdKichThuoc")
     private String idKT;
+    @Column(name = "IdMauSac")
     private String idMS;
+    @Column(name = "IdSanPham")
     private String idSP;
+    @Column(name = "SoLuong")
     private int soLuong;
+    @Column(name = "DonGia")
     private int donGia;
+    @Column(name = "TrangThai")
     private int trangThai;
 
     public SPChiTiet() {
@@ -86,5 +100,19 @@ public class SPChiTiet {
 
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
+    }
+
+    @Override
+    public String toString() {
+        return "SPChiTiet{" +
+                "ID=" + ID +
+                ", ma='" + ma + '\'' +
+                ", idKT='" + idKT + '\'' +
+                ", idMS='" + idMS + '\'' +
+                ", idSP='" + idSP + '\'' +
+                ", soLuong=" + soLuong +
+                ", donGia=" + donGia +
+                ", trangThai=" + trangThai +
+                '}';
     }
 }

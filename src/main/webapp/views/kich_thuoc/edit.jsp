@@ -4,10 +4,14 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/kich_thuoc/update">
+<form method="POST" action="/BTVN_war_exploded/kich_thuoc/update?id=${kt.id}">
+    <div>
+        <label>ID</label>
+        <input type="text" name="id" readonly/>
+    </div>
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ kt.ma }" readonly/>
+        <input type="text" name="ma" value="${ kt.ma }" />
     </div>
     <div>
         <label>Tên</label>

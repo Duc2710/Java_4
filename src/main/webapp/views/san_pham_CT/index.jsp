@@ -26,9 +26,9 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${ data }" var="spct" varStatus="i">
+    <c:forEach items="${ data }" var="spct" >
         <tr>
-            <td>${i.index+1}</td>
+            <td>${spct.ID}</td>
             <td>${ spct.ma }</td>
             <td>${ spct.idKT }</td>
             <td>${ spct.idMS }</td>
@@ -38,11 +38,11 @@
             <td>${ spct.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/san_pham_CT/edit?ma=${spct.ma}">Update</a>
+                    <a href="/BTVN_war_exploded/san_pham_CT/edit?ID=${spct.ID}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/san_pham_CT/delete?ma=${spct.ma}">Delete</a>
+                    <a href="/BTVN_war_exploded/san_pham_CT/delete?ID=${spct.ID}">Delete</a>
                 </button>
             </td>
 

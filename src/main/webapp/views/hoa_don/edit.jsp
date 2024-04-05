@@ -4,18 +4,18 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/hoa_don/update">
+<form method="POST" action="/BTVN_war_exploded/hoa_don/update?ID=${hd.ID}">
     <div>
         <label>ID nhân viên</label>
-        <input type="text" name="idNV" value="${hd.idNV}" readonly/>
+        <input type="number" name="idNV" value="${hd.idNV}" />
     </div>
     <div>
         <label>ID khách hàng</label>
-        <input type="text" name="idKH" value="${hd.idKH}"/>
+        <input type="number" name="idKH" value="${hd.idKH}"/>
     </div>
     <div>
         <label>Ngày mua</label>
-        <input type="text" name="ngayMua" value="${hd.ngayMua}"/>
+        <input type="date" name="ngayMua" value="${hd.ngayMua}"/>
     </div>
     <div>
         <label>Trạng thái</label>

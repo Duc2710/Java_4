@@ -7,19 +7,19 @@
 <form method="POST" action="/BTVN_war_exploded/hoa_don_CT/store">
     <div>
         <label>ID hóa đơn</label>
-        <input type="text" name="idHD" />
+        <input type="number" name="idHD" value="${idHD.idHD}"/>
     </div>
     <div>
         <label>ID sản phẩm</label>
-        <input type="text" name="idSPCT"/>
+        <input type="number" name="idSPCT" value="${idHD.SPCT}"/>
     </div>
     <div>
         <label>Số lượng</label>
-        <input type="number" name="soLuong"/>
+        <input type="number" name="soLuong" value="${idHD.soLuong}"/>
     </div>
     <div>
         <label>Đơn giá</label>
-        <input type="number" name="donGia"/>
+        <input type="number" name="donGia" value="${idHD.donGia}"/>
     </div>
     <div>
         <label>Trạng thái</label>

@@ -7,19 +7,19 @@
 <form method="POST" action="/BTVN_war_exploded/san_pham_CT/store">
     <div>
         <label>Mã</label>
-        <input type="text" name="ma"/>
+        <input type="number" name="ma"/>
     </div>
     <div>
         <label>Kích thước</label>
-        <input type="text" name="idKT" />
+        <input type="number" name="idKT" />
     </div>
     <div>
         <label>Màu sắc</label>
-        <input type="text" name="idMS"/>
+        <input type="number" name="idMS"/>
     </div>
     <div>
         <label>Sản phẩm</label>
-        <input type="text" name="idSP"/>
+        <input type="number" name="idSP"/>
     </div>
     <div>
         <label>Số lượng</label>

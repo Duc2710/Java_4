@@ -5,10 +5,10 @@
 </head>
 <body>
 <form method="POST" action="/BTVN_war_exploded/mau_sac/store">
-    <div>
-        <label>Id</label>
-        <input type="text" name="ID"/>
-    </div>
+    <%--    <div>--%>
+    <%--&lt;%&ndash;        <label>Id</label>&ndash;%&gt;--%>
+    <%--        <input type="text" name="ID"/>--%>
+    <%--    </div>--%>
     <div>
         <label>Mã</label>
         <input type="text" name="ma"/>

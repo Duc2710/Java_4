@@ -4,10 +4,14 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/nhan_vien/update">
+<form method="POST" action="/BTVN_war_exploded/nhan_vien/update?ID=${nv.ID}">
+    <div>
+        <label>ID</label>
+        <input type="text" name="ID" value="${nv.ID}" readonly/>
+    </div>
     <div>
         <label>Tên</label>
-        <input type="text" name="ten" value="${nv.ten}" readonly/>
+        <input type="text" name="ten" value="${nv.ten}" />
     </div>
     <div>
         <label>Mã</label>
@@ -31,7 +35,7 @@
         <label>Ngừng hoạt động</label>
     </div>
     <div>
-        <button>Thêm</button>
+        <button>Cập nhật</button>
     </div>
     <div>
         <button>

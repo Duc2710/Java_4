@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import repositories.SPCTRP;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,12 +23,13 @@ import java.util.List;
         "/san_pham_CT/index",
 })
 public class SPCTServlet extends HttpServlet {
-    List<SPChiTiet> dsSPCT = new ArrayList<>();
-    public SPCTServlet(){
-        this.dsSPCT.add(new SPChiTiet(null, "001", "axz", "a12", "012", 10, 1000, 1));
-        this.dsSPCT.add(new SPChiTiet(null, "002", "ayz", "a23", "013", 11, 1000, 0));
-        this.dsSPCT.add(new SPChiTiet(null, "003", "azz", "a34", "014", 12, 1000, 1));
+    //    List<SPChiTiet> dsSPCT = new ArrayList<>();
+    private SPCTRP spctrp = new SPCTRP();
+
+    public SPCTServlet() {
+        //
     }
+
     public void doGet(
             HttpServletRequest request,
             HttpServletResponse response
@@ -63,7 +66,7 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        request.setAttribute("data", this.dsSPCT);
+        request.setAttribute("data", spctrp.findAll());
         request.getRequestDispatcher("/views/san_pham_CT/index.jsp")
                 .forward(request, response);
     }
@@ -80,18 +83,18 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String idKT = request.getParameter("idKT");
-        String idMS = request.getParameter("idMS");
-        String idSP = request.getParameter("idSP");
-        String SL = request.getParameter("soLuong");
-        int soLuong = Integer.parseInt(SL);
-        String DG = request.getParameter("donGia");
-        int donGia = Integer.parseInt(DG);
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        SPChiTiet spct = new SPChiTiet(null, ma, idKT, idMS, idSP, soLuong, donGia, trangThai);
-        this.dsSPCT.add(spct);
+//        String ma = request.getParameter("ma");
+//        String idKT = request.getParameter("idKT");
+//        String idMS = request.getParameter("idMS");
+//        String idSP = request.getParameter("idSP");
+//        String SL = request.getParameter("soLuong");
+//        int soLuong = Integer.parseInt(SL);
+//        String DG = request.getParameter("donGia");
+//        int donGia = Integer.parseInt(DG);
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        SPChiTiet spct = new SPChiTiet();
+        this.spctrp.create(spct);
         response.sendRedirect("/BTVN_war_exploded/san_pham_CT/index");
     }
 
@@ -99,13 +102,9 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsSPCT.size(); i++) {
-            SPChiTiet spct = this.dsSPCT.get(i);
-            if (spct.getMa().equals(ma)) {
-                request.setAttribute("spct", spct);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        SPChiTiet spct = this.spctrp.findById(ID);
+        request.setAttribute("spct", spct);
         request.getRequestDispatcher("/views/san_pham_CT/edit.jsp")
                 .forward(request, response);
     }
@@ -114,23 +113,23 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String idKT = request.getParameter("idKT");
-        String idMS = request.getParameter("idMS");
-        String idSP = request.getParameter("idSP");
-        String SL = request.getParameter("soLuong");
-        int soLuong = Integer.parseInt(SL);
-        String DG = request.getParameter("donGia");
-        int donGia = Integer.parseInt(DG);
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        SPChiTiet spct = new SPChiTiet(null, ma, idKT, idMS, idSP, soLuong, donGia, trangThai);
-        for (int i = 0; i < this.dsSPCT.size(); i++) {
-            SPChiTiet SPCT = this.dsSPCT.get(i);
-            if (SPCT.getMa().equals(ma)) {
-                this.dsSPCT.set(i, spct);
-            }
+//        String ma = request.getParameter("ma");
+//        String idKT = request.getParameter("idKT");
+//        String idMS = request.getParameter("idMS");
+//        String idSP = request.getParameter("idSP");
+//        String SL = request.getParameter("soLuong");
+//        int soLuong = Integer.parseInt(SL);
+//        String DG = request.getParameter("donGia");
+//        int donGia = Integer.parseInt(DG);
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        SPChiTiet spct = new SPChiTiet();
+        try{
+            BeanUtils.populate(spct, request.getParameterMap());
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.spctrp.update(spct);
         response.sendRedirect("/BTVN_war_exploded/san_pham_CT/index");
     }
 
@@ -138,13 +137,9 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsSPCT.size(); i++) {
-            SPChiTiet spct = this.dsSPCT.get(i);
-            if (spct.getMa().equals(ma)) {
-                this.dsSPCT.remove(i);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        SPChiTiet spct = this.spctrp.findById(ID);
+        this.spctrp.delete(spct);
         response.sendRedirect("/BTVN_war_exploded/san_pham_CT/index");
     }
 }

@@ -1,9 +1,20 @@
 package entities;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.Comment;
+
+@Entity
+@Table(name = "SanPham")
 public class SanPham {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer ID;
+    @Column(name = "Ma")
     private String ma;
+    @Column(name = "Ten")
     private String ten;
+    @Column(name = "TrangThai")
     private int trangThai;
 
     public SanPham() {

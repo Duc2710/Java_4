@@ -23,19 +23,19 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${ data }" var="kt" varStatus="i">
+    <c:forEach items="${ data }" var="kt" >
         <tr>
-            <td>${i.index+1}</td>
+            <td>${kt.id}</td>
             <td>${ kt.ma }</td>
             <td>${ kt.ten }</td>
             <td>${ kt.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/kich_thuoc/edit?ma=${kt.ma}">Update</a>
+                    <a href="/BTVN_war_exploded/kich_thuoc/edit?id=${kt.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/kich_thuoc/delete?ma=${kt.ma}">Delete</a>
+                    <a href="/BTVN_war_exploded/kich_thuoc/delete?id=${kt.id}">Delete</a>
                 </button>
             </td>
 

@@ -5,6 +5,7 @@
 </head>
 <body>
 <form method="POST" action="/BTVN_war_exploded/kich_thuoc/store">
+
     <div>
         <label>Mã</label>
         <input type="text" name="ma" />

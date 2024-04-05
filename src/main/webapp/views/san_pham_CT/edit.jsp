@@ -4,22 +4,22 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/san_pham_CT/update">
+<form method="POST" action="/BTVN_war_exploded/san_pham_CT/update?ID=${spct.ID}>
     <div>
         <label>Mã</label>
         <input type="text" name="ma" value="${spct.ma}" readonly/>
     </div>
     <div>
         <label>Kích thước</label>
-        <input type="text" name="idKT" value="${spct.idKT}"/>
+        <input type="number" name="idKT" value="${spct.idKT}"/>
     </div>
     <div>
         <label>Màu sắc</label>
-        <input type="text" name="idMS" value="${spct.idMS}"/>
+        <input type="number" name="idMS" value="${spct.idMS}"/>
     </div>
     <div>
         <label>Sản phẩm</label>
-        <input type="text" name="idSP" value="${spct.idSP}"/>
+        <input type="number" name="idSP" value="${spct.idSP}"/>
     </div>
     <div>
         <label>Số lượng</label>

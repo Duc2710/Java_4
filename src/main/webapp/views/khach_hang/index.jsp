@@ -23,9 +23,9 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${ data }" var="kh" >
+    <c:forEach items="${ data }" var="kh" varStatus="i">
         <tr>
-            <td>${kh.ID}</td>
+            <td>${i.index+1}</td>
             <td>${ kh.ten }</td>
             <td>${ kh.ma }</td>
             <td>${ kh.SDT }</td>

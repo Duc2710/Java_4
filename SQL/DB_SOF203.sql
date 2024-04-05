@@ -15,6 +15,7 @@
  Date: 29/11/2023 00:24:56
 */
 
+Select * from HoaDon
 
 -- ----------------------------
 -- Table structure for HoaDon

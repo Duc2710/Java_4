@@ -1,11 +1,23 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Table(name = "NhanVien")
+@Entity
 public class NhanVien {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    @Id
     private Integer ID;
+    @Column(name = "Ten")
     private String ten;
+    @Column(name = "Ma")
     private String ma;
+    @Column(name = "TenDangNhap")
     private String tenDN;
+    @Column(name = "MatKhau")
     private String MK;
+    @Column(name = "TrangThai")
     private int trangThai;
 
     public NhanVien() {
@@ -27,7 +39,7 @@ public class NhanVien {
         this.ten = ten;
     }
 
-    public String getma() {
+    public String getMa() {
         return ma;
     }
 

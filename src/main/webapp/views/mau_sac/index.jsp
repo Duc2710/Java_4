@@ -30,11 +30,11 @@
             <td>${ ms.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/mau_sac/edit?ma=${ms.ma}">Update</a>
+                    <a href="/BTVN_war_exploded/mau_sac/edit?id=${ms.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/mau_sac/delete?ma=${ms.ma}">Delete</a>
+                    <a href="/BTVN_war_exploded/mau_sac/delete?id=${ms.id}">Delete</a>
                 </button>
             </td>
 

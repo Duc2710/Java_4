@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import repositories.KichThuocRP;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,11 +25,10 @@ import java.util.List;
 })
 public class KichThuocServlet extends HttpServlet {
     List<KichThuoc> dsKT = new ArrayList<>();
+    private KichThuocRP ktRP = new KichThuocRP();
 
     public KichThuocServlet() {
-        this.dsKT.add(new KichThuoc(null, "01", "001", 1));
-        this.dsKT.add(new KichThuoc(null, "02", "002", 0));
-        this.dsKT.add(new KichThuoc(null, "03", "003", 1));
+        //
     }
 
     public void doGet(
@@ -66,7 +67,7 @@ public class KichThuocServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        request.setAttribute("data", this.dsKT);
+        request.setAttribute("data", ktRP.findAll());
         request.getRequestDispatcher("/views/kich_thuoc/index.jsp")
                 .forward(request, response);
     }
@@ -83,12 +84,17 @@ public class KichThuocServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        KichThuoc kt = new KichThuoc(null, ma, ten, trangThai);
-        this.dsKT.add(kt);
+//        String ma = request.getParameter("ma");
+//        String ten = request.getParameter("ten");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        KichThuoc kt = new KichThuoc();
+        try {
+            BeanUtils.populate(kt, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.ktRP.create(kt);
         response.sendRedirect("/BTVN_war_exploded/kich_thuoc/index");
     }
 
@@ -96,13 +102,9 @@ public class KichThuocServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsKT.size(); i++) {
-            KichThuoc kt = this.dsKT.get(i);
-            if (kt.getMa().equals(ma)) {
-                request.setAttribute("kt", kt);
-            }
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        KichThuoc kt = this.ktRP.findById(id);
+        request.setAttribute("kt", kt);
         request.getRequestDispatcher("/views/kich_thuoc/edit.jsp")
                 .forward(request, response);
     }
@@ -111,17 +113,17 @@ public class KichThuocServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        KichThuoc kt = new KichThuoc(null, ma, ten, trangThai);
-        for (int i = 0; i < this.dsKT.size(); i++) {
-            KichThuoc color = this.dsKT.get(i);
-            if (color.getMa().equals(ma)) {
-                this.dsKT.set(i, kt);
-            }
+//        String ma = request.getParameter("ma");
+//        String ten = request.getParameter("ten");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+        KichThuoc kt = new KichThuoc();
+        try {
+            BeanUtils.populate(kt, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        this.ktRP.update(kt);
         response.sendRedirect("/BTVN_war_exploded/kich_thuoc/index");
     }
 
@@ -129,13 +131,9 @@ public class KichThuocServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsKT.size(); i++) {
-            KichThuoc color = this.dsKT.get(i);
-            if (color.getMa().equals(ma)) {
-                this.dsKT.remove(i);
-            }
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        KichThuoc kt = this.ktRP.findById(id);
+        this.ktRP.delete(kt);
         response.sendRedirect("/BTVN_war_exploded/kich_thuoc/index");
     }
 }

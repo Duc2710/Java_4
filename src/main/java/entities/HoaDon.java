@@ -2,11 +2,22 @@ package entities;
 
 //import java.util.Date;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "HoaDon")
 public class HoaDon {
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
+    @Column(name = "IdNV")
     private String idNV;
+    @Column(name = "IdKH")
     private String idKH;
+    @Column(name = "NgayMuaHang")
     private String ngayMua;
+    @Column(name = "TrangThai")
     private  int trangThai;
 
     public HoaDon() {

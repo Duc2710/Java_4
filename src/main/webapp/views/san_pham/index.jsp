@@ -22,19 +22,19 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${data}" var="sp" varStatus="i">
+    <c:forEach items="${data}" var="sp" >
         <tr>
-            <td>${i.index+1}</td>
+            <td>${sp.ID}</td>
             <td>${ sp.ma }</td>
             <td>${ sp.ten }</td>
             <td>${ sp.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/san_pham/edit?ma=${sp.ma}">Update</a>
+                    <a href="/BTVN_war_exploded/san_pham/edit?ID=${sp.ID}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/san_pham/delete?ma=${sp.ma}">Delete</a>
+                    <a href="/BTVN_war_exploded/san_pham/delete?ID=${sp.ID}">Delete</a>
                 </button>
             </td>
 

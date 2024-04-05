@@ -4,14 +4,14 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/hoa_don_CT/update">
+<form method="POST" action="/BTVN_war_exploded/hoa_don_CT/update?ID=${idHD.ID}">
     <div>
         <label>ID hóa đơn</label>
-        <input type="text" name="idHD" value="${ idHD.idHD } " readonly/>
+        <input type="number" name="idHD" value="${ idHD.idHD } " />
     </div>
     <div>
         <label>ID sản phẩm</label>
-        <input type="text" name="idSPCT" value="${idHD.idSPCT}"/>
+        <input type="number" name="idSPCT" value="${idHD.idSPCT}"/>
     </div>
     <div>
         <label>Số lượng</label>

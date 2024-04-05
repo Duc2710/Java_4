@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import repositories.NhanVienRP;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,13 +23,7 @@ import java.util.List;
         "/nhan_vien/index",
 })
 public class NhanVienServlet extends HttpServlet {
-    List<NhanVien> dsNV = new ArrayList<>();
-
-    public NhanVienServlet() {
-        this.dsNV.add(new NhanVien(null, "A", "PH01", "Ax", "1234", 1));
-        this.dsNV.add(new NhanVien(null, "B", "PH02", "Bx", "1234", 1));
-        this.dsNV.add(new NhanVien(null, "C", "PH03", "Cx", "1234", 0));
-    }
+    private NhanVienRP nvRP = new NhanVienRP();
 
     public void doGet(
             HttpServletRequest request,
@@ -65,7 +61,7 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        request.setAttribute("data", this.dsNV);
+        request.setAttribute("data", nvRP.findAll());
         request.getRequestDispatcher("/views/nhan_vien/index.jsp")
                 .forward(request, response);
     }
@@ -82,14 +78,13 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ten = request.getParameter("ten");
-        String ma = request.getParameter("ma");
-        String tenDN = request.getParameter("tenDN");
-        String MK = request.getParameter("MK");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        NhanVien nv = new NhanVien(null, ten, ma, tenDN, MK, trangThai);
-        this.dsNV.add(nv);
+        NhanVien nv = new NhanVien();
+        try{
+            BeanUtils.populate(nv, request.getParameterMap());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        this.nvRP.create(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }
 
@@ -97,13 +92,9 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsNV.size(); i++) {
-            NhanVien nv = this.dsNV.get(i);
-            if (nv.getma().equals(ma)) {
-                request.setAttribute("nv", nv);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        NhanVien nv = this.nvRP.findById(ID);
+        request.setAttribute("nv", nv);
         request.getRequestDispatcher("/views/nhan_vien/edit.jsp")
                 .forward(request, response);
     }
@@ -112,19 +103,13 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ten = request.getParameter("ten");
-        String ma = request.getParameter("ma");
-        String tenDN = request.getParameter("tenDN");
-        String MK = request.getParameter("MK");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        NhanVien nv = new NhanVien(null,ten, ma, tenDN, MK, trangThai);
-        for (int i = 0; i < this.dsNV.size(); i++) {
-            NhanVien nhanVien = this.dsNV.get(i);
-            if (nhanVien.getma().equals(ma)) {
-                this.dsNV.set(i, nv);
-            }
+        NhanVien nv = new NhanVien();
+        try{
+            BeanUtils.populate(nv, request.getParameterMap());
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        this.nvRP.update(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }
 
@@ -132,13 +117,9 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsNV.size(); i++) {
-            NhanVien nv = this.dsNV.get(i);
-            if (nv.getma().equals(ma)) {
-                this.dsNV.remove(i);
-            }
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        NhanVien nv = this.nvRP.findById(ID);
+        this.nvRP.delete(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }
 }

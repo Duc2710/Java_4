@@ -4,14 +4,14 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/mau_sac/update">
+<form method="POST" action="/BTVN_war_exploded/mau_sac/update?id=${ms.id}">
     <div>
         <label>Id</label>
-        <input type="text" name="ID" value="${ ms.id }"/>
+        <input type="text" name="id" value="${ ms.id }" readonly/>
     </div>
     <div>
         <label>Mã</label>
-        <input type="text" name="ma" value="${ ms.ma }"/>
+        <input type="text" name="ma" value="${ ms.ma }" />
     </div>
     <div>
         <label>Tên</label>

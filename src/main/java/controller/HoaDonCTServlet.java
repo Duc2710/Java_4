@@ -145,8 +145,3 @@ public class HoaDonCTServlet extends HttpServlet {
         response.sendRedirect("/BTVN_war_exploded/hoa_don_CT/hoaDonCT");
     }
 }
-
-
-
-
-

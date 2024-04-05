@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
 import repositories.MauSacRP;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.util.List;
 public class MauSacServlet extends HttpServlet {
     List<MauSac> ds = new ArrayList<>();
     private MauSacRP msRP = new MauSacRP();
+
     public MauSacServlet() {
         //
     }
@@ -80,13 +82,12 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String id = request.getParameter("ID");
-        int ID = Integer.parseInt(id);
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        MauSac ms = new MauSac(ID, ma, ten, trangThai);
+        MauSac ms = new MauSac();
+        try {
+            BeanUtils.populate(ms, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.msRP.create(ms);
         response.sendRedirect("/BTVN_war_exploded/mau_sac/index");
     }
@@ -95,13 +96,9 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.msRP.findAll().size(); i++) {
-            MauSac ms = this.msRP.findAll().get(i);
-            if (ms.getMa().equals(ma)) {
-                request.setAttribute("ms", ms);
-            }
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        MauSac ms = this.msRP.findById(id);
+        request.setAttribute("ms", ms);
         request.getRequestDispatcher("/views/mau_sac/edit.jsp")
                 .forward(request, response);
     }
@@ -110,19 +107,17 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String id = request.getParameter("ID");
-        int ID = Integer.parseInt(id);
-        String ma = request.getParameter("ma");
-        String ten = request.getParameter("ten");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        MauSac ms = new MauSac(ID, ma, ten, trangThai);
-        for (int i = 0; i < this.msRP.findAll().size(); i++) {
-            MauSac color = this.msRP.findAll().get(i);
-            if (color.getMa().equals(ma)) {
-                this.msRP.update(ms);
-            }
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        String ma = request.getParameter("ma");
+//        String ten = request.getParameter("ten");
+//        int trangThai = Integer.parseInt(request.getParameter("trangThai"));
+        MauSac ms = new MauSac();
+        try {
+            BeanUtils.populate(ms, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        this.msRP.update(ms);
         response.sendRedirect("/BTVN_war_exploded/mau_sac/index");
     }
 
@@ -130,13 +125,9 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.msRP.findAll().size(); i++) {
-            MauSac color = this.msRP.findAll().get(i);
-            if (color.getMa().equals(ma)) {
-                this.msRP.delete(color);
-            }
-        }
+        int id = Integer.parseInt(request.getParameter("id"));
+        MauSac ms = this.msRP.findById(id);
+        this.msRP.delete(ms);
         response.sendRedirect("/BTVN_war_exploded/mau_sac/index");
     }
 }

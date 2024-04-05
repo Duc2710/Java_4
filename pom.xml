@@ -45,8 +45,6 @@
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
-
-
         </dependency>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -58,6 +56,13 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.3.2.Final</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

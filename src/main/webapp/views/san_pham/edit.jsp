@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/san_pham/update">
+<form method="POST" action="/BTVN_war_exploded/san_pham/update?ID=${sp.ID}">
     <div>
         <label>Mã</label>
         <input type="text" name="ma" value="${ sp.ma }" />

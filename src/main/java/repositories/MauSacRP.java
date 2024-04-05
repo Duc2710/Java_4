@@ -51,4 +51,7 @@ public class MauSacRP {
             tr.rollback();
         }
     }
+    public MauSac findById(int id){
+        return this.hSession.find(MauSac.class, id);
+    }
 }
