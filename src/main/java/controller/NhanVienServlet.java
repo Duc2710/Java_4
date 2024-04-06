@@ -103,12 +103,18 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        NhanVien nv = new NhanVien();
-        try{
-            BeanUtils.populate(nv, request.getParameterMap());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        String ten = request.getParameter("ten");
+        String MK = request.getParameter("MK");
+        String ma = request.getParameter("ma");
+        String tenDN = request.getParameter("tenDN");
+        int trangThai = Integer.parseInt(request.getParameter("trangThai"));
+        NhanVien nv = new NhanVien(ID,ten,ma,tenDN,MK,trangThai);
+//        try{
+//            BeanUtils.populate(nv, request.getParameterMap());
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
         this.nvRP.update(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }

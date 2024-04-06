@@ -17,20 +17,21 @@ public class HoaDonCT {
     private int soLuong;
     @Column(name = "DonGia")
     private int donGia;
+    @Column(name = "ThoiGian")
+    private String thoiGian;
     @Column(name = "TrangThai")
     private int trangThai;
-//    @Column(name = "ThoiGian")
-//    private DateTime
 
     public HoaDonCT() {
     }
 
-    public HoaDonCT(Integer ID, String idHD, String idSPCT, int soLuong, int donGia, int trangThai) {
+    public HoaDonCT(Integer ID, String idHD, String idSPCT, int soLuong, int donGia, String thoiGian, int trangThai) {
         this.ID = ID;
         this.idHD = idHD;
         this.idSPCT = idSPCT;
         this.soLuong = soLuong;
         this.donGia = donGia;
+        this.thoiGian = thoiGian;
         this.trangThai = trangThai;
     }
 
@@ -72,6 +73,14 @@ public class HoaDonCT {
 
     public void setDonGia(int donGia) {
         this.donGia = donGia;
+    }
+
+    public String getThoiGian() {
+        return thoiGian;
+    }
+
+    public void setThoiGian(String thoiGian) {
+        this.thoiGian = thoiGian;
     }
 
     public int getTrangThai() {

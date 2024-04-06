@@ -4,7 +4,7 @@
   <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/khach_hang/update">
+<form method="POST" action="/BTVN_war_exploded/khach_hang/update?ID=${kh.ID}">
   <div>
     <label>Tên</label>
     <input type="text" name="ten" value="${kh.ten}" readonly/>
@@ -31,7 +31,7 @@
   </div>
   <div>
     <button>
-      <a href="/BTVN_war_exploded/khach_hang/khachHang">
+      <a href="/BTVN_war_exploded/khach_hang/index">
         Quay lại
       </a>
     </button>

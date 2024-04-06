@@ -7,19 +7,19 @@
 <form method="POST" action="/BTVN_war_exploded/nhan_vien/store">
     <div>
         <label>Tên</label>
-        <input type="text" name="ten" />
+        <input type="text" name="ten" value="${nv.ten}"/>
     </div>
     <div>
         <label>Mã</label>
-        <input type="text" name="ma"/>
+        <input type="text" name="ma" value="${nv.ma}"/>
     </div>
     <div>
         <label>Tên đăng nhập</label>
-        <input type="text" name="tenDN"/>
+        <input type="text" name="tenDN" value="${nv.tenDN}"/>
     </div>
     <div>
         <label>Mật khẩu</label>
-        <input type="text" name="MK"/>
+        <input type="text" name="MK" value ="${nv.MK}"/>
     </div>
     <div>
         <label>Trạng thái</label>

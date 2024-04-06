@@ -22,6 +22,10 @@
         <input type="number" name="donGia" value="${idHD.donGia}"/>
     </div>
     <div>
+        <label>Thời gian</label>
+        <input type="number" name="thoiGian" value="${idHD.thoiGian}"/>
+    </div>
+    <div>
         <label>Trạng thái</label>
         <input type="radio" name="trangThai" value="1"/>
         <label>Đang hoạt động</label>

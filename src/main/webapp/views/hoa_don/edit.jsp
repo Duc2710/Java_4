@@ -6,6 +6,10 @@
 <body>
 <form method="POST" action="/BTVN_war_exploded/hoa_don/update?ID=${hd.ID}">
     <div>
+        <label>ID </label>
+        <input type="number" name="ID" value="${hd.ID}" />
+    </div>
+    <div>
         <label>ID nhân viên</label>
         <input type="number" name="idNV" value="${hd.idNV}" />
     </div>

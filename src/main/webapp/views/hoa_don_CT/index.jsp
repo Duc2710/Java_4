@@ -19,6 +19,7 @@
         <th>ID sản phẩm</th>
         <th>Số lượng</th>
         <th>Đơn giá</th>
+        <th>Thời gian</th>
         <th>Trạng thái</th>
         <th colspan="2">Thao tác</th>
     </tr>
@@ -26,11 +27,12 @@
     <tbody>
     <c:forEach items="${ data }" var="idHD" varStatus="i">
         <tr>
-            <td>${i.index+1}</td>
+            <td>${idHD.ID}</td>
             <td>${ idHD.idHD }</td>
             <td>${ idHD.idSPCT }</td>
             <td>${ idHD.soLuong }</td>
             <td>${ idHD.donGia }</td>
+            <td>${ idHD.thoiGian }</td>
             <td>${ idHD.trangThai }</td>
             <td>
                 <button class="btn btn-info">

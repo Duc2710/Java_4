@@ -20,7 +20,7 @@ import java.util.List;
         "/hoa_don/edit",
         "/hoa_don/update",
         "/hoa_don/delete",
-        "/hoa_don/hoaDonCT",
+        "/hoa_don/index",
 })
 public class HoaDonServlet extends HttpServlet {
     List<HoaDon> dsHD = new ArrayList<>();
@@ -67,7 +67,7 @@ public class HoaDonServlet extends HttpServlet {
             HttpServletResponse response
     ) throws IOException, ServletException {
         request.setAttribute("data", hdRP.findAll());
-        request.getRequestDispatcher("/views/hoa_don/hoaDonCT.jsp")
+        request.getRequestDispatcher("/views/hoa_don/index.jsp")
                 .forward(request, response);
     }
 
@@ -95,7 +95,7 @@ public class HoaDonServlet extends HttpServlet {
             e.printStackTrace();
         }
         this.hdRP.create(hd);
-        response.sendRedirect("/BTVN_war_exploded/hoa_don/hoaDonCT");
+        response.sendRedirect("/BTVN_war_exploded/hoa_don/index");
     }
 
     public void edit(
@@ -125,7 +125,7 @@ public class HoaDonServlet extends HttpServlet {
             e.printStackTrace();
         }
         this.hdRP.update(hd);
-        response.sendRedirect("/BTVN_war_exploded/hoa_don/hoaDonCT");
+        response.sendRedirect("/BTVN_war_exploded/hoa_don/index");
     }
 
     public void delete(
@@ -135,6 +135,6 @@ public class HoaDonServlet extends HttpServlet {
         int ID = Integer.parseInt(request.getParameter("ID"));
         HoaDon hd = this.hdRP.findById(ID);
         this.hdRP.delete(hd);
-        response.sendRedirect("/BTVN_war_exploded/hoa_don/hoaDonCT");
+        response.sendRedirect("/BTVN_war_exploded/hoa_don/index");
     }
 }

@@ -7,6 +7,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.beanutils.BeanUtils;
+import repositories.KhachHangRP;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,15 +20,16 @@ import java.util.List;
         "/khach_hang/edit",
         "/khach_hang/update",
         "/khach_hang/delete",
-        "/khach_hang/khachHang",
+        "/khach_hang/index",
 })
 public class KhachHangServlet extends HttpServlet {
-    List<KhachHang> dsKH = new ArrayList<>();
+//    List<KhachHang> dsKH = new ArrayList<>();
 
+    private KhachHangRP khRP = new KhachHangRP();
     public KhachHangServlet() {
-        this.dsKH.add(new KhachHang(null, "001", "01234", "TH01", 1));
-        this.dsKH.add(new KhachHang(null, "002", "12312", "TH02", 1));
-        this.dsKH.add(new KhachHang(null, "003", "01231", "TH01", 0));
+//        this.dsKH.add(new KhachHang(null, "001", "01234", "TH01", 1));
+//        this.dsKH.add(new KhachHang(null, "002", "12312", "TH02", 1));
+//        this.dsKH.add(new KhachHang(null, "003", "01231", "TH01", 0));
     }
 
     public void doGet(
@@ -65,8 +68,8 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        request.setAttribute("data", this.dsKH);
-        request.getRequestDispatcher("/views/khach_hang/khachHang.jsp")
+        request.setAttribute("data", khRP.findAll());
+        request.getRequestDispatcher("/views/khach_hang/index.jsp")
                 .forward(request, response);
     }
 
@@ -82,27 +85,37 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ten = request.getParameter("ten");
-        String SDT = request.getParameter("SDT");
-        String ma = request.getParameter("ma");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        KhachHang kh = new KhachHang(null, ten, SDT, ma, trangThai);
-        this.dsKH.add(kh);
-        response.sendRedirect("/BTVN_war_exploded/khach_hang/khachHang");
+//        String ten = request.getParameter("ten");
+//        String SDT = request.getParameter("SDT");
+//        String ma = request.getParameter("ma");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+//        KhachHang kh = new KhachHang(null, ten, SDT, ma, trangThai);
+//        this.khRP.create(kh);
+        KhachHang kh = new KhachHang();
+        try{
+            BeanUtils.populate(kh, request.getParameterMap());
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        this.khRP.create(kh);
+        response.sendRedirect("/BTVN_war_exploded/khach_hang/index");
     }
 
     public void edit(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsKH.size(); i++) {
-            KhachHang kh = this.dsKH.get(i);
-            if (kh.getMa().equals(ma)) {
-                request.setAttribute("kh", kh);
-            }
-        }
+//        String ma = request.getParameter("ma");
+//        for (int i = 0; i < this.khRP.findAll(); i++) {
+//            KhachHang kh = this.khRP.findAll().get(i);
+//            if (kh.getMa().equals(ma)) {
+//                request.setAttribute("kh", kh);
+//            }
+//        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        KhachHang kh = this.khRP.findById(ID);
+        request.setAttribute("kh", kh);
         request.getRequestDispatcher("/views/khach_hang/edit.jsp")
                 .forward(request, response);
     }
@@ -111,32 +124,42 @@ public class KhachHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ten = request.getParameter("ten");
-        String SDT = request.getParameter("SDT");
-        String ma = request.getParameter("ma");
-        String ttString = request.getParameter("trangThai");
-        int trangThai = Integer.parseInt(ttString);
-        KhachHang kh = new KhachHang(null, ten, SDT, ma, trangThai);
-        for (int i = 0; i < this.dsKH.size(); i++) {
-            KhachHang color = this.dsKH.get(i);
-            if (color.getMa().equals(ma)) {
-                this.dsKH.set(i, kh);
-            }
+//        String ten = request.getParameter("ten");
+//        String SDT = request.getParameter("SDT");
+//        String ma = request.getParameter("ma");
+//        String ttString = request.getParameter("trangThai");
+//        int trangThai = Integer.parseInt(ttString);
+//        KhachHang kh = new KhachHang(null, ten, SDT, ma, trangThai);
+//        for (int i = 0; i < this.khRP.findAll().size(); i++) {
+//            KhachHang color = this.khRP.findAll().get(i);
+//            if (color.getMa().equals(ma)) {
+//                this.dsKH.set(i, kh);
+//            }
+//        }
+        KhachHang kh = new KhachHang();
+        try{
+            BeanUtils.populate(kh, request.getParameterMap());
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        response.sendRedirect("/BTVN_war_exploded/khach_hang/khachHang");
+        this.khRP.update(kh);
+        response.sendRedirect("/BTVN_war_exploded/khach_hang/index");
     }
 
     public void delete(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        String ma = request.getParameter("ma");
-        for (int i = 0; i < this.dsKH.size(); i++) {
-            KhachHang kh = this.dsKH.get(i);
-            if (kh.getMa().equals(ma)) {
-                this.dsKH.remove(i);
-            }
-        }
-        response.sendRedirect("/BTVN_war_exploded/khach_hang/khachHang");
+//        String ma = request.getParameter("ma");
+//        for (int i = 0; i < this.dsKH.size(); i++) {
+//            KhachHang kh = this.dsKH.get(i);
+//            if (kh.getMa().equals(ma)) {
+//                this.dsKH.remove(i);
+//            }
+//        }
+        int ID = Integer.parseInt(request.getParameter("ID"));
+        KhachHang kh = this.khRP.findById(ID);
+        this.khRP.delete(kh);
+        response.sendRedirect("/BTVN_war_exploded/khach_hang/index");
     }
 }
