@@ -24,17 +24,17 @@
     <tbody>
     <c:forEach items="${data}" var="sp" >
         <tr>
-            <td>${sp.ID}</td>
+            <td>${ sp.id }</td>
             <td>${ sp.ma }</td>
             <td>${ sp.ten }</td>
             <td>${ sp.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/san_pham/edit?ID=${sp.ID}">Update</a>
+                    <a href="/BTVN_war_exploded/san_pham/edit?id=${sp.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/san_pham/delete?ID=${sp.ID}">Delete</a>
+                    <a href="/BTVN_war_exploded/san_pham/delete?id=${sp.id}">Delete</a>
                 </button>
             </td>
 

@@ -25,22 +25,22 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${ data }" var="idHD" varStatus="i">
+    <c:forEach items="${ data }" var="hdct">
         <tr>
-            <td>${idHD.ID}</td>
-            <td>${ idHD.idHD }</td>
-            <td>${ idHD.idSPCT }</td>
-            <td>${ idHD.soLuong }</td>
-            <td>${ idHD.donGia }</td>
-            <td>${ idHD.thoiGian }</td>
-            <td>${ idHD.trangThai }</td>
+            <td>${hdct.id}</td>
+            <td>${ hdct.idHD }</td>
+            <td>${ hdct.idSPCT }</td>
+            <td>${ hdct.soLuong }</td>
+            <td>${ hdct.donGia }</td>
+            <td>${ hdct.thoiGian }</td>
+            <td>${ hdct.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/hoa_don_CT/edit?idHD=${idHD.idHD}">Update</a>
+                    <a href="/BTVN_war_exploded/hoa_don_CT/edit?id=${hdct.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/hoa_don_CT/delete?idHD=${idHD.idHD}">Delete</a>
+                    <a href="/BTVN_war_exploded/hoa_don_CT/delete?id=${hdct.id}">Delete</a>
                 </button>
             </td>
 

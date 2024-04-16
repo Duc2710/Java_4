@@ -8,7 +8,7 @@ public class SPChiTiet {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
     @Column(name = "MaSPCT")
     private String ma;
     @Column(name = "IdKichThuoc")
@@ -27,23 +27,12 @@ public class SPChiTiet {
     public SPChiTiet() {
     }
 
-    public SPChiTiet(Integer ID, String ma, String idKT, String idMS, String idSP, int soLuong, int donGia, int trangThai) {
-        this.ID = ID;
-        this.ma = ma;
-        this.idKT = idKT;
-        this.idMS = idMS;
-        this.idSP = idSP;
-        this.soLuong = soLuong;
-        this.donGia = donGia;
-        this.trangThai = trangThai;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMa() {
@@ -102,10 +91,21 @@ public class SPChiTiet {
         this.trangThai = trangThai;
     }
 
+    public SPChiTiet(Integer id, String ma, String idKT, String idMS, String idSP, int soLuong, int donGia, int trangThai) {
+        this.id = id;
+        this.ma = ma;
+        this.idKT = idKT;
+        this.idMS = idMS;
+        this.idSP = idSP;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+        this.trangThai = trangThai;
+    }
+
     @Override
     public String toString() {
         return "SPChiTiet{" +
-                "ID=" + ID +
+                "id=" + id +
                 ", ma='" + ma + '\'' +
                 ", idKT='" + idKT + '\'' +
                 ", idMS='" + idMS + '\'' +

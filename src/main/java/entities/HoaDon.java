@@ -1,8 +1,8 @@
 package entities;
 
-//import java.util.Date;
 
 import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "HoaDon")
@@ -10,7 +10,7 @@ public class HoaDon {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
     @Column(name = "IdNV")
     private String idNV;
     @Column(name = "IdKH")
@@ -23,20 +23,12 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(Integer ID, String idNV, String idKH, String ngayMua, int trangThai) {
-        this.ID = ID;
-        this.idNV = idNV;
-        this.idKH = idKH;
-        this.ngayMua = ngayMua;
-        this.trangThai = trangThai;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getIdNV() {
@@ -68,6 +60,14 @@ public class HoaDon {
     }
 
     public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public HoaDon(Integer id, String idNV, String idKH, String ngayMua, int trangThai) {
+        this.id = id;
+        this.idNV = idNV;
+        this.idKH = idKH;
+        this.ngayMua = ngayMua;
         this.trangThai = trangThai;
     }
 }

@@ -8,7 +8,7 @@ public class NhanVien {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     @Id
-    private Integer ID;
+    private Integer id;
     @Column(name = "Ten")
     private String ten;
     @Column(name = "Ma")
@@ -23,12 +23,12 @@ public class NhanVien {
     public NhanVien() {
     }
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTen() {
@@ -43,7 +43,7 @@ public class NhanVien {
         return ma;
     }
 
-    public void setma(String ma) {
+    public void setMa(String ma) {
         this.ma = ma;
     }
 
@@ -59,7 +59,7 @@ public class NhanVien {
         return MK;
     }
 
-    public void getMK(String MK) {
+    public void setMK(String MK) {
         this.MK = MK;
     }
 
@@ -71,8 +71,8 @@ public class NhanVien {
         this.trangThai = trangThai;
     }
 
-    public NhanVien(Integer ID, String ten, String ma, String tenDN, String MK, int trangThai) {
-        this.ID = ID;
+    public NhanVien(Integer id, String ten, String ma, String tenDN, String MK, int trangThai) {
+        this.id = id;
         this.ten = ten;
         this.ma = ma;
         this.tenDN = tenDN;

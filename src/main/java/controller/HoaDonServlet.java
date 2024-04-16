@@ -23,13 +23,8 @@ import java.util.List;
         "/hoa_don/index",
 })
 public class HoaDonServlet extends HttpServlet {
-    List<HoaDon> dsHD = new ArrayList<>();
     private HoaDonRP hdRP = new HoaDonRP();
-    public HoaDonServlet(){
-//        this.dsHD.add(new HoaDon(null, "A", "Z", "23/12/2024",1));
-//        this.dsHD.add(new HoaDon(null, "B", "X", "23/12/2024",0));
-//        this.dsHD.add(new HoaDon(null, "C", "Y", "24/12/2024",1));
-    }
+
     public void doGet(
             HttpServletRequest request,
             HttpServletResponse response
@@ -43,7 +38,7 @@ public class HoaDonServlet extends HttpServlet {
         } else if (uri.contains("delete")) {
             this.delete(request, response);
         } else {
-            this.hoaDonCT(request, response);
+            this.index(request, response);
         }
     }
 
@@ -62,7 +57,7 @@ public class HoaDonServlet extends HttpServlet {
         }
     }
 
-    public void hoaDonCT(
+    public void index(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
@@ -83,15 +78,10 @@ public class HoaDonServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idNV = request.getParameter("idNV");
-//        String idKH = request.getParameter("idKH");
-//        String ngayMua = request.getParameter("ngayMua");
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         HoaDon hd = new HoaDon();
-        try{
+        try {
             BeanUtils.populate(hd, request.getParameterMap());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         this.hdRP.create(hd);
@@ -102,8 +92,8 @@ public class HoaDonServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        HoaDon hd = this.hdRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        HoaDon hd = this.hdRP.findById(id);
         request.setAttribute("hd", hd);
         request.getRequestDispatcher("/views/hoa_don/edit.jsp")
                 .forward(request, response);
@@ -113,15 +103,10 @@ public class HoaDonServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idNV = request.getParameter("idNV");
-//        String idKH = request.getParameter("idKH");
-//        String ngayMua = request.getParameter("ngayMua");
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         HoaDon hd = new HoaDon();
-        try{
+        try {
             BeanUtils.populate(hd, request.getParameterMap());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         this.hdRP.update(hd);
@@ -132,8 +117,8 @@ public class HoaDonServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        HoaDon hd = this.hdRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        HoaDon hd = this.hdRP.findById(id);
         this.hdRP.delete(hd);
         response.sendRedirect("/BTVN_war_exploded/hoa_don/index");
     }

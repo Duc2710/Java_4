@@ -25,18 +25,18 @@
     <tbody>
     <c:forEach items="${ data }" var="hd" >
         <tr>
-            <td>${hd.ID}</td>
+            <td>${hd.id}</td>
             <td>${ hd.idNV }</td>
             <td>${ hd.idKH }</td>
             <td>${ hd.ngayMua }</td>
             <td>${ hd.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/hoa_don/edit?ID=${hd.ID}">Update</a>
+                    <a href="/BTVN_war_exploded/hoa_don/edit?id=${hd.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/hoa_don/delete?ID=${hd.ID}">Delete</a>
+                    <a href="/BTVN_war_exploded/hoa_don/delete?id=${hd.id}">Delete</a>
                 </button>
             </td>
 

@@ -1,0 +1,39 @@
+
+¤
+java:S1192X"cDefine a constant instead of duplicating this literal "/BTVN_war_exploded/nhan_vien/index" 3 times.(İ˜¢šÿÿÿÿÿJ$6039f757-2144-4d25-8378-a56c0c6a1fee
+g
+java:S1948"&Make "nvRP" transient or serializable.(œË–ùÿÿÿÿJ$ce52ca73-f319-4fc5-9479-37c60a563889
+{
+java:S1161":Add the "@Override" annotation above this method signature(«¡˜ÔüÿÿÿÿJ$ea715dd3-eb60-4ccc-a070-60d53e80e5ab
+e	java:S106!"+Replace this use of System.out by a logger.(°Ÿ÷aJ$a64bf3f3-7fa7-463f-958f-59b0f7879fbf
+¡
+java:S1989#"`Handle the following exceptions that could be thrown by "create": IOException, ServletException.(Ñ¨âúÿÿÿÿJ$fe18f924-47df-4034-80b2-8ab0a83bc160
+š
+java:S1989%"^Handle the following exceptions that could be thrown by "edit": IOException, ServletException.(º¬ƒJ$5e0640f6-a7ff-4c6e-98fc-2cd9edaa5d3c
+¡
+java:S1989'"`Handle the following exceptions that could be thrown by "delete": IOException, ServletException.(™Ç‚üÿÿÿÿJ$7bd25e63-ed13-4a0a-98be-12d804fcacf1
+›
+java:S1989)"_Handle the following exceptions that could be thrown by "index": IOException, ServletException.(§Ê ”J$cb1f6479-0fd0-49a2-a4e3-eee051cbfa02
+{
+java:S1161-":Add the "@Override" annotation above this method signature(•ãåñøÿÿÿÿJ$ef45101e-b7bc-4998-8e2a-56b758b08557
+e	java:S1062"+Replace this use of System.out by a logger.(°Ÿ÷aJ$fc372786-83a8-4b2d-babf-b7e818da1fef
+ 
+java:S19894"_Handle the following exceptions that could be thrown by "store": IOException, ServletException.(İóàÉúÿÿÿÿJ$1d813fa1-7caf-4abb-a00d-0f71c0c09098
+œ
+java:S19896"`Handle the following exceptions that could be thrown by "update": IOException, ServletException.(õŸ’J$aa91fb49-05eb-4ca8-97c3-a28e285722a2
+‘
+java:S19898"PHandle the following exception that could be thrown by "sendError": IOException.(ú•¹ŸÿÿÿÿÿJ$f5d856da-94ce-40e9-8cec-a0d3522c4e01
+º
+java:S1130P"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$28085ca7-b660-4ed7-b1c0-ff24298a4c34
+º
+java:S1130i"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$bf5da99e-b6f7-437f-8719-f01df21bed38
+º
+java:S1130w"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$b4b1e8ab-2596-4b87-b18c-f44611262a2d
+N
+java:S1128",Remove this unused import 'entities.MauSac'.(»£íŠüÿÿÿÿ8Ó»¥Ãî1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Õ»¥Ãî1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8×»¥Ãî1
+™
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(œË–ùÿÿÿÿJ$82be61be-9315-45b0-9e14-5bbd960f83af

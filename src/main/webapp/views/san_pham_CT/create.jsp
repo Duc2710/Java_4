@@ -31,11 +31,9 @@
     </div>
     <div>
         <label>Trạng thái</label>
-        <input type="radio" name="trangThai" value="1"
-        ${ms.trangThai == 1 ? "checked" :  ""}/>
+        <input type="radio" name="trangThai" value="1"/>
         <label>Đang hoạt động</label>
-        <input type="radio" name="trangThai" value="0"
-        ${ms.trangThai == 0 ? "checked" :  ""}/>
+        <input type="radio" name="trangThai" value="0"/>
         <label>Ngừng hoạt động</label>
     </div>
     <div>

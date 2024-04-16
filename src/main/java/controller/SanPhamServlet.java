@@ -23,7 +23,6 @@ import java.util.List;
         "/san_pham/index"
 })
 public class SanPhamServlet extends HttpServlet {
-    List<SanPham> dsSP = new ArrayList<>();
     private SanPhamRP spRP = new SanPhamRP();
 
     public SanPhamServlet() {
@@ -83,10 +82,6 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String ma = request.getParameter("ma");
-//        String ten = request.getParameter("ten");
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         SanPham sp = new SanPham();
         try {
             BeanUtils.populate(sp, request.getParameterMap());
@@ -101,8 +96,9 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        SanPham sp = this.spRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        SanPham sp = this.spRP.findById(id);
+        request.setAttribute("sp", sp);
         request.getRequestDispatcher("/views/san_pham/edit.jsp")
                 .forward(request, response);
     }
@@ -111,10 +107,6 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String ma = request.getParameter("ma");
-//        String ten = request.getParameter("ten");
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         SanPham sp = new SanPham();
         try {
             BeanUtils.populate(sp, request.getParameterMap());
@@ -129,8 +121,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        SanPham sp = this.spRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        SanPham sp = this.spRP.findById(id);
         this.spRP.delete(sp);
         response.sendRedirect("/BTVN_war_exploded/san_pham/index");
     }

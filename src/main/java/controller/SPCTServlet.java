@@ -23,12 +23,8 @@ import java.util.List;
         "/san_pham_CT/index",
 })
 public class SPCTServlet extends HttpServlet {
-    //    List<SPChiTiet> dsSPCT = new ArrayList<>();
     private SPCTRP spctrp = new SPCTRP();
 
-    public SPCTServlet() {
-        //
-    }
 
     public void doGet(
             HttpServletRequest request,
@@ -83,17 +79,12 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String ma = request.getParameter("ma");
-//        String idKT = request.getParameter("idKT");
-//        String idMS = request.getParameter("idMS");
-//        String idSP = request.getParameter("idSP");
-//        String SL = request.getParameter("soLuong");
-//        int soLuong = Integer.parseInt(SL);
-//        String DG = request.getParameter("donGia");
-//        int donGia = Integer.parseInt(DG);
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         SPChiTiet spct = new SPChiTiet();
+        try{
+            BeanUtils.populate(spct, request.getParameterMap());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         this.spctrp.create(spct);
         response.sendRedirect("/BTVN_war_exploded/san_pham_CT/index");
     }
@@ -102,8 +93,8 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        SPChiTiet spct = this.spctrp.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        SPChiTiet spct = this.spctrp.findById(id);
         request.setAttribute("spct", spct);
         request.getRequestDispatcher("/views/san_pham_CT/edit.jsp")
                 .forward(request, response);
@@ -113,16 +104,6 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String ma = request.getParameter("ma");
-//        String idKT = request.getParameter("idKT");
-//        String idMS = request.getParameter("idMS");
-//        String idSP = request.getParameter("idSP");
-//        String SL = request.getParameter("soLuong");
-//        int soLuong = Integer.parseInt(SL);
-//        String DG = request.getParameter("donGia");
-//        int donGia = Integer.parseInt(DG);
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
         SPChiTiet spct = new SPChiTiet();
         try{
             BeanUtils.populate(spct, request.getParameterMap());
@@ -137,8 +118,8 @@ public class SPCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        SPChiTiet spct = this.spctrp.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        SPChiTiet spct = this.spctrp.findById(id);
         this.spctrp.delete(spct);
         response.sendRedirect("/BTVN_war_exploded/san_pham_CT/index");
     }

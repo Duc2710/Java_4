@@ -8,7 +8,7 @@ public class HoaDonCT {
     @Column(name = "ID")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
     @Column(name = "IdHoaDon")
     private String idHD;
     @Column(name = "IdSPCT")
@@ -25,22 +25,12 @@ public class HoaDonCT {
     public HoaDonCT() {
     }
 
-    public HoaDonCT(Integer ID, String idHD, String idSPCT, int soLuong, int donGia, String thoiGian, int trangThai) {
-        this.ID = ID;
-        this.idHD = idHD;
-        this.idSPCT = idSPCT;
-        this.soLuong = soLuong;
-        this.donGia = donGia;
-        this.thoiGian = thoiGian;
-        this.trangThai = trangThai;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getIdHD() {
@@ -88,6 +78,16 @@ public class HoaDonCT {
     }
 
     public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public HoaDonCT(Integer id, String idHD, String idSPCT, int soLuong, int donGia, String thoiGian, int trangThai) {
+        this.id = id;
+        this.idHD = idHD;
+        this.idSPCT = idSPCT;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+        this.thoiGian = thoiGian;
         this.trangThai = trangThai;
     }
 }

@@ -1,0 +1,43 @@
+
+ 
+java:S1192`"dDefine a constant instead of duplicating this literal "/BTVN_war_exploded/hoa_don_CT/index" 3 times.(ÙüÁäJ$5bb38518-534a-4ba0-b0f7-9e9e0a231958
+i
+java:S1948"(Make "hdctRP" transient or serializable.(ãº½ïûÿÿÿÿJ$f7b9cb8c-b600-46fb-96ba-4c410ab781e9
+|	java:S125"<This block of commented-out lines of code should be removed.(ˆ‡¶òúÿÿÿÿJ$e646d28a-c3ee-44f4-873f-f1e0b59d2590
+|	java:S125"<This block of commented-out lines of code should be removed.(’ÆÎÿÿÿÿÿJ$e7170cf0-33af-471a-915a-a94fb2604416
+{
+java:S1161$":Add the "@Override" annotation above this method signature(«¡˜ÔüÿÿÿÿJ$80119adf-24d2-4b70-947e-e962397ddb0e
+e	java:S106)"+Replace this use of System.out by a logger.(°Ÿ÷aJ$8eb6e230-8153-463b-aa47-9bec7685d10f
+¡
+java:S1989+"`Handle the following exceptions that could be thrown by "create": IOException, ServletException.(Ñ¨âúÿÿÿÿJ$93526b90-061a-4c59-85f1-14ee92170ca3
+š
+java:S1989-"^Handle the following exceptions that could be thrown by "edit": IOException, ServletException.(º¬ƒJ$f6225ac8-62c3-4b40-9a44-9f3bc5530c7b
+¡
+java:S1989/"`Handle the following exceptions that could be thrown by "delete": IOException, ServletException.(™Ç‚üÿÿÿÿJ$1423de8e-d114-4afc-9072-9b55d076ea9e
+›
+java:S19891"_Handle the following exceptions that could be thrown by "index": IOException, ServletException.(§Ê ”J$d6b053a8-0170-4dc7-a4fd-55dd80a19362
+{
+java:S11615":Add the "@Override" annotation above this method signature(•ãåñøÿÿÿÿJ$96ce31a7-0e73-4044-8d24-1f22b50b91a2
+e	java:S106:"+Replace this use of System.out by a logger.(°Ÿ÷aJ$9a2b6014-6959-469d-a1fc-d60980a1e4c4
+ 
+java:S1989<"_Handle the following exceptions that could be thrown by "store": IOException, ServletException.(İóàÉúÿÿÿÿJ$a023302e-1ada-4771-937c-7636f2ba2472
+œ
+java:S1989>"`Handle the following exceptions that could be thrown by "update": IOException, ServletException.(õŸ’J$50cda9f8-e028-47c1-ac7e-a533af5082b0
+‘
+java:S1989@"PHandle the following exception that could be thrown by "sendError": IOException.(ú•¹ŸÿÿÿÿÿJ$6b1dd4b6-db5d-47b7-a0e6-846b94c329bc
+º
+java:S1130X"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$f146fafb-27c6-46c8-915f-2ef84a871d75
+º
+java:S1130q"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$1765564a-d1aa-452c-ace2-d84824816af3
+º
+java:S1130"yRemove the declaration of thrown exception 'jakarta.servlet.ServletException', as it cannot be thrown from method's body.(íë§…ıÿÿÿÿJ$15adf9dd-fd61-4307-bee0-376023b76898
+N
+java:S1128",Remove this unused import 'entities.HoaDon'.(¬ûÓËüÿÿÿÿ8æÈ†Äî1
+N
+java:S1128",Remove this unused import 'entities.MauSac'.(»£íŠüÿÿÿÿ8æÈ†Äî1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8æÈ†Äî1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8çÈ†Äî1
+™
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(ãº½ïûÿÿÿÿJ$911063d9-5036-49f6-ae2e-04e0527ffff9

@@ -9,7 +9,7 @@ public class SanPham {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Integer ID;
+    private Integer id;
     @Column(name = "Ma")
     private String ma;
     @Column(name = "Ten")
@@ -20,19 +20,12 @@ public class SanPham {
     public SanPham() {
     }
 
-    public SanPham(Integer ID, String ma, String ten, int trangThai) {
-        this.ID = ID;
-        this.ma = ma;
-        this.ten = ten;
-        this.trangThai = trangThai;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getMa() {
@@ -56,6 +49,13 @@ public class SanPham {
     }
 
     public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
+    public SanPham(Integer id, String ma, String ten, int trangThai) {
+        this.id = id;
+        this.ma = ma;
+        this.ten = ten;
         this.trangThai = trangThai;
     }
 }

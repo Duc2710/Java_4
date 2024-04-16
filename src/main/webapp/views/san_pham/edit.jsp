@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/san_pham/update?ID=${sp.ID}">
+<form method="POST" action="/BTVN_war_exploded/san_pham/update?id=${sp.id}">
     <div>
         <label>Mã</label>
         <input type="text" name="ma" value="${ sp.ma }" />
@@ -16,10 +16,10 @@
     <div>
         <label>Trạng thái</label>
         <input type="radio" name="trangThai" value="1"
-        ${ms.trangThai == 1 ? "checked" :  ""}/>
+        ${sp.trangThai == 1 ? "checked" :  ""}/>
         <label>Đang hoạt động</label>
         <input type="radio" name="trangThai" value="0"
-        ${ms.trangThai == 0 ? "checked" :  ""}/>
+        ${sp.trangThai == 0 ? "checked" :  ""}/>
         <label>Ngừng hoạt động</label>
     </div>
     <div>

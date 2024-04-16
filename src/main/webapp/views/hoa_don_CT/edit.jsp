@@ -4,30 +4,34 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/hoa_don_CT/update?ID=${idHD.ID}">
+<form method="POST" action="/BTVN_war_exploded/hoa_don_CT/update?id=${hdct.id}">
     <div>
         <label>ID hóa đơn</label>
-        <input type="number" name="idHD" value="${ idHD.idHD } " />
+        <input type="number" name="idHD" value="${hdct.idHD}"/>
     </div>
     <div>
         <label>ID sản phẩm</label>
-        <input type="number" name="idSPCT" value="${idHD.idSPCT}"/>
+        <input type="number" name="idSPCT" value="${hdct.idSPCT}"/>
     </div>
     <div>
         <label>Số lượng</label>
-        <input type="number" name="soLuong" value="${idHD.soLuong}"/>
+        <input type="number" name="soLuong" value="${hdct.soLuong}"/>
+    </div>
+    <div>
+        <label>Thời gian</label>
+        <input type="datetime-local" name="thoiGian" value="${hdct.thoiGian}"/>
     </div>
     <div>
         <label>Đơn giá</label>
-        <input type="number" name="donGia" value="${idHD.donGia}"/>
+        <input type="number" name="donGia" value="${hdct.donGia}"/>
     </div>
     <div>
         <label>Trạng thái</label>
         <input type="radio" name="trangThai" value="1"
-        ${idHD.trangThai == 1 ? "checked" :  ""}/>
+        ${hdct.trangThai == 1 ? "checked" :  ""}/>
         <label>Đang hoạt động</label>
         <input type="radio" name="trangThai" value="0"
-        ${idHD.trangThai == 0 ? "checked" :  ""}/>
+        ${hdct.trangThai == 0 ? "checked" :  ""}/>
         <label>Ngừng hoạt động</label>
     </div>
     <div>
@@ -35,7 +39,7 @@
     </div>
     <div>
         <button>
-            <a href="/BTVN_war_exploded/hoa_don_CT/hoaDonCT">
+            <a href="/BTVN_war_exploded/hoa_don_CT/index">
                 Quay lại
             </a>
         </button>

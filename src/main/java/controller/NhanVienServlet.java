@@ -92,8 +92,8 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        NhanVien nv = this.nvRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        NhanVien nv = this.nvRP.findById(id);
         request.setAttribute("nv", nv);
         request.getRequestDispatcher("/views/nhan_vien/edit.jsp")
                 .forward(request, response);
@@ -103,18 +103,12 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        String ten = request.getParameter("ten");
-        String MK = request.getParameter("MK");
-        String ma = request.getParameter("ma");
-        String tenDN = request.getParameter("tenDN");
-        int trangThai = Integer.parseInt(request.getParameter("trangThai"));
-        NhanVien nv = new NhanVien(ID,ten,ma,tenDN,MK,trangThai);
-//        try{
-//            BeanUtils.populate(nv, request.getParameterMap());
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+        NhanVien nv = new NhanVien();
+       try{
+            BeanUtils.populate(nv, request.getParameterMap());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         this.nvRP.update(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }
@@ -123,8 +117,8 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        NhanVien nv = this.nvRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        NhanVien nv = this.nvRP.findById(id);
         this.nvRP.delete(nv);
         response.sendRedirect("/BTVN_war_exploded/nhan_vien/index");
     }

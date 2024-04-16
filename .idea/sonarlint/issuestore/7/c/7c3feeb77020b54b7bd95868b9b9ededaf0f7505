@@ -1,0 +1,22 @@
+
+‡
+java:S3252"FUse static access with "org.hibernate.cfg.JdbcSettings" for "DIALECT".(ÚúõîşÿÿÿÿJ$203a29ea-3d7b-4ea3-9a96-6776bc380d6c
+†
+java:S3252"EUse static access with "org.hibernate.cfg.JdbcSettings" for "DRIVER".(Î±ÍêøÿÿÿÿJ$6f97b44f-d843-4cb3-b1f9-e3cff3b8a6de
+o
+java:S1874".Remove this use of "DRIVER"; it is deprecated.(Î±ÍêøÿÿÿÿJ$3725455f-ae34-4a89-b04d-8d67ebd125f4
+~
+java:S3252"BUse static access with "org.hibernate.cfg.JdbcSettings" for "URL".(‰ÿİ—J$79c20b2b-c117-4608-b549-d6706bc7fd93
+g
+java:S1874"+Remove this use of "URL"; it is deprecated.(‰ÿİ—J$d9c8b18d-65fc-4852-8978-b156bb0fc6b1
+
+java:S3252"CUse static access with "org.hibernate.cfg.JdbcSettings" for "USER".(·çİµJ$6655a7d7-7c63-4674-888c-ffcb2afc9c73
+h
+java:S1874",Remove this use of "USER"; it is deprecated.(·çİµJ$95b5b44a-16b2-437a-82f5-dd0a06e6d40a
+„
+java:S3252"CUse static access with "org.hibernate.cfg.JdbcSettings" for "PASS".(§°´ıÿÿÿÿJ$cf61227c-6749-4c78-8f2b-47262f30a102
+m
+java:S1874",Remove this use of "PASS"; it is deprecated.(§°´ıÿÿÿÿJ$4e2bb718-0117-4584-8cbc-c0faea7c55ca
+ˆ
+java:S3252"GUse static access with "org.hibernate.cfg.JdbcSettings" for "SHOW_SQL".(ÌŸåøÿÿÿÿJ$c434a64b-499c-405e-8221-956324b72be8
+k	java:S106-"+Replace this use of System.out by a logger.(“æÜ¿øÿÿÿÿJ$b2324986-adef-4578-ac55-a1c37b468b79

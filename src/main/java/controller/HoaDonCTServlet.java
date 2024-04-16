@@ -86,16 +86,6 @@ public class HoaDonCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idHD = request.getParameter("idHD");
-//        String idSPCT = request.getParameter("idSPCT");
-//        String SL = request.getParameter("soLuong");
-//        int soLuong = Integer.parseInt(SL);
-//        String DG = request.getParameter("donGia");
-//        int donGia = Integer.parseInt(DG);
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
-//        HoaDonCT hdct = new HoaDonCT(null, idHD, idSPCT, soLuong, donGia ,trangThai);
-//        this.dsHD.add(hdct);
         HoaDonCT hdct = new HoaDonCT();
         try {
             BeanUtils.populate(hdct, request.getParameterMap());
@@ -110,15 +100,8 @@ public class HoaDonCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idHD = request.getParameter("idHD");
-//        for (int i = 0; i < this.dsHD.size(); i++) {
-//            HoaDonCT hdct = this.dsHD.get(i);
-//            if (hdct.getIdHD().equals(idHD)) {
-//                request.setAttribute("idHD", hdct);
-//            }
-//        }
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        HoaDonCT hdct = this.hdctRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        HoaDonCT hdct = this.hdctRP.findById(id);
         request.setAttribute("hdct", hdct);
         request.getRequestDispatcher("/views/hoa_don_CT/edit.jsp")
                 .forward(request, response);
@@ -128,21 +111,6 @@ public class HoaDonCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idHD = request.getParameter("idHD");
-//        String idSPCT = request.getParameter("idSPCT");
-//        String SL = request.getParameter("soLuong");
-//        int soLuong = Integer.parseInt(SL);
-//        String DG = request.getParameter("donGia");
-//        int donGia = Integer.parseInt(DG);
-//        String ttString = request.getParameter("trangThai");
-//        int trangThai = Integer.parseInt(ttString);
-//        HoaDonCT hdct = new HoaDonCT(null, idHD, idSPCT, soLuong, donGia ,trangThai);
-//        for (int i = 0; i < this.dsHD.size(); i++) {
-//            HoaDonCT color = this.dsHD.get(i);
-//            if (color.getIdHD().equals(idHD)) {
-//                this.dsHD.set(i, hdct);
-//            }
-//        }
         HoaDonCT hdct = new HoaDonCT();
         try {
             BeanUtils.populate(hdct, request.getParameterMap());
@@ -157,15 +125,8 @@ public class HoaDonCTServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws IOException, ServletException {
-//        String idHD = request.getParameter("idHD");
-//        for (int i = 0; i < this.dsHD.size(); i++) {
-//            HoaDonCT hdct = this.dsHD.get(i);
-//            if (hdct.getIdHD().equals(idHD)) {
-//                this.dsHD.remove(i);
-//            }
-//        }
-        int ID = Integer.parseInt(request.getParameter("ID"));
-        HoaDonCT hdct = this.hdctRP.findById(ID);
+        int id = Integer.parseInt(request.getParameter("id"));
+        HoaDonCT hdct = this.hdctRP.findById(id);
         this.hdctRP.delete(hdct);
         response.sendRedirect("/BTVN_war_exploded/hoa_don_CT/index");
     }

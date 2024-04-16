@@ -4,10 +4,10 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/nhan_vien/update?ID=${nv.ID}">
+<form method="POST" action="/BTVN_war_exploded/nhan_vien/update?id=${nv.id}">
     <div>
         <label>ID</label>
-        <input type="text" name="ID" value="${nv.ID}" readonly/>
+        <input type="text" name="ID" value="${nv.id}" readonly/>
     </div>
     <div>
         <label>Tên</label>
@@ -28,10 +28,10 @@
     <div>
         <label>Trạng thái</label>
         <input type="radio" name="trangThai" value="1"
-        ${ms.trangThai == 1 ? "checked" :  ""}/>
+        ${nv.trangThai == 1 ? "checked" :  ""}/>
         <label>Đang hoạt động</label>
         <input type="radio" name="trangThai" value="0"
-        ${ms.trangThai == 0 ? "checked" :  ""}/>
+        ${nv.trangThai == 0 ? "checked" :  ""}/>
         <label>Ngừng hoạt động</label>
     </div>
     <div>

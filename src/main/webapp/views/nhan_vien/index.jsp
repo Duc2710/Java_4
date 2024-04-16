@@ -26,7 +26,7 @@
     <tbody>
     <c:forEach items="${ data }" var="nv" >
         <tr>
-            <td>${nv.ID}</td>
+            <td>${nv.id}</td>
             <td>${ nv.ten }</td>
             <td>${ nv.ma}</td>
             <td>${ nv.tenDN }</td>
@@ -34,11 +34,11 @@
             <td>${ nv.trangThai }</td>
             <td>
                 <button class="btn btn-info">
-                    <a href="/BTVN_war_exploded/nhan_vien/edit?ID=${nv.ID}">Update</a>
+                    <a href="/BTVN_war_exploded/nhan_vien/edit?id=${nv.id}">Update</a>
                 </button>
 
                 <button class="btn btn-warning">
-                    <a href="/BTVN_war_exploded/nhan_vien/delete?ID=${nv.ID}">Delete</a>
+                    <a href="/BTVN_war_exploded/nhan_vien/delete?id=${nv.id}">Delete</a>
                 </button>
             </td>
 

@@ -4,10 +4,10 @@
     <title>Title</title>
 </head>
 <body>
-<form method="POST" action="/BTVN_war_exploded/hoa_don/update?ID=${hd.ID}">
+<form method="POST" action="/BTVN_war_exploded/hoa_don/update?id=${hd.id}">
     <div>
         <label>ID </label>
-        <input type="number" name="ID" value="${hd.ID}" />
+        <input type="number" name="ID" value="${hd.id}" readonly/>
     </div>
     <div>
         <label>ID nhân viên</label>
